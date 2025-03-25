@@ -1,0 +1,47 @@
+<header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="logo.svg" alt="Homeopatická poradna Emília">
+      </div>
+      <nav class="navbar">
+        <ul class="menu">
+          <li><a href="home.html">O homeoporadně</a></li>
+          <li class="dropdown">
+            <a href="#">Homeopatie</a>
+            <div class="dropdown-content">
+              <a href="homeopatie.html">Co to je homeopatie?</a>
+              <a href="konzultace.html">Konzultace</a>
+              <a href="antidota.html">Podání léku (antidota)</a>
+              <a href="cenik.html">Ceník</a>
+              <a href="#">Domácí homeolékárnička</a>
+            </div>
+          </li>
+          <li><a href="#">Kontakt</a></li>
+          <li><a href="#">Napsali o nás</a></li>
+          <li><a href="#">Návštěvní kniha</a></li>
+          <li class="dropdown">
+            <a href="#">Sprátelené odkazy</a>
+            <div class="dropdown-content">
+              <a href="https://firma1.cz" target="_blank">Firma 1</a>
+              <a href="https://firma2.cz" target="_blank">Firma 2</a>
+              <a href="https://firma3.cz" target="_blank">Firma 3</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    <!-- Hamburger Menu Icon -->
+    <div id="hamburger-menu" class="hamburger-menu">
+      <span>&#9776;</span> <!-- Toto je ikonka pro hamburger -->
+  </div>
+
+    </div>
+  </header>
+
+
+  <script>
+    // Při kliknutí na hamburger menu, přepneme třídu "active" na navbar
+document.getElementById('hamburger-menu').addEventListener('click', function() {
+    document.querySelector('.navbar').classList.toggle('active');
+});
+
+  </script>
