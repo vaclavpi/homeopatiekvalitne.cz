@@ -8,7 +8,7 @@ function loadHTML(id, filename) {
 
 // Načtení navigace a footeru po načtení stránky
 document.addEventListener("DOMContentLoaded", function() {
-    loadHTML("header-placeholder", "header.html");
+    loadHTML("navbar-placeholder", "navbar.html");
     loadHTML("footer-placeholder", "footer.html");
 });
 

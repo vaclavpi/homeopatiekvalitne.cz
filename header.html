@@ -1,49 +1,51 @@
 <header>
-    <div class="header-container">
-      <div class="logo">
-        <img src="logo.svg" alt="Homeopatická poradna Emília">
-      </div>
-      <nav class="navbar">
-        <ul class="menu">
-          <li><a href="home.html">O homeoporadně</a></li>
-          <li class="dropdown">
-            <a href="#">Homeopatie</a>
-            <div class="dropdown-content">
-              <a href="homeopatie.html">Co to je homeopatie?</a>
-              <a href="konzultace.html">Konzultace</a>
-              <a href="antidota.html">Podání léku (antidota)</a>
-              <a href="cenik.html">Ceník</a>
-              <a href="#">Domácí homeolékárnička</a>
-            </div>
-          </li>
-          <li><a href="#">Kontakt</a></li>
-          <li><a href="#">Napsali o nás</a></li>
-          <li><a href="#">Návštěvní kniha</a></li>
-          <li class="dropdown">
-            <a href="#">Sprátelené odkazy</a>
-            <div class="dropdown-content">
-              <a href="https://www.zuzanaihnatkova.cz/" target="_blank">Zuzana Ihnátková - terapeut metodou JIH</a>
-              <a href="http://www.homeopatie.cz/" target="_blank">Homeopatiee</a>
-              <a href="http://www.pilates-kurzy.cz/" target="_blank">Pilates kurzy</a>
-              <a href="http://www.autopatie.cz/" target="_blank">Autopatie</a>
-              <a href="http://www.123homeopatie.com/" target="_blank">123 homeopatie</a>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    <!-- Hamburger Menu Icon -->
-    <div id="hamburger-menu" class="hamburger-menu">
-      <span>&#9776;</span> <!-- Toto je ikonka pro hamburger -->
-  </div>
-
+  <div class="topnav" id="myTopnav">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logo.svg" alt="Homeopatická poradna Emília">
     </div>
-  </header>
 
+    <!-- Navigační menu -->
+    <ul class="menu">
+      <li><a href="home.html">O homeoporadně</a></li>
+      <li class="dropdown">
+        <a href="#">Homeopatie</a>
+        <div class="dropdown-content">
+          <a href="homeopatie.html">Co to je homeopatie?</a>
+          <a href="konzultace.html">Konzultace</a>
+          <a href="antidota.html">Podání léku (antidota)</a>
+          <a href="cenik.html">Ceník</a>
+          <a href="#">Domácí homeolékárnička</a>
+        </div>
+      </li>
+      <li><a href="#">Kontakt</a></li>
+      <li><a href="#">Napsali o nás</a></li>
+      <li><a href="#">Návštěvní kniha</a></li>
+      <li class="dropdown">
+        <a href="#">Sprátelené odkazy</a>
+        <div class="dropdown-content">
+          <a href="https://www.zuzanaihnatkova.cz/" target="_blank">Zuzana Ihnátková - terapeut metodou JIH</a>
+          <a href="http://www.homeopatie.cz/" target="_blank">Homeopatiee</a>
+          <a href="http://www.pilates-kurzy.cz/" target="_blank">Pilates kurzy</a>
+          <a href="http://www.autopatie.cz/" target="_blank">Autopatie</a>
+          <a href="http://www.123homeopatie.com/" target="_blank">123 homeopatie</a>
+        </div>
+      </li>
+    </ul>
 
-  <script>
-    // Při kliknutí na hamburger menu, přepneme třídu "active" na navbar
-document.getElementById('hamburger-menu').addEventListener('click', function() {
-    document.querySelector('.navbar').classList.toggle('active');
-});
+    <!-- Hamburger menu -->
+    <button class="hamburger-menu">&#9776;</button>
+  </div>
+</header>
 
-  </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menu = document.querySelector(".topnav .menu");
+    const hamburger = document.querySelector(".hamburger-menu");
+
+    // Kliknutí na hamburger menu pro zobrazení menu
+    hamburger.addEventListener("click", function () {
+      menu.classList.toggle("active");  // Zobrazení nebo skrytí menu
+    });
+  });
+</script>
