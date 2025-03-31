@@ -170,7 +170,7 @@ p{
     color: var(--text);
     font-family: "Inter", serif;
 }
-  }
+  
   
   @media (max-width: 768px) {
     article {
@@ -318,6 +318,45 @@ p{
     width: 400px;
     height: 400px;
 } 
+
+
+
+
+.entry {
+  border-bottom: 1px solid var(--background);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.entry:last-child {
+  border-bottom: none;
+}
+.date {
+  font-size: 12px;
+  color: var(--text);
+}
+.form-group {
+  margin-bottom: 10px;
+}
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid var(--background);
+}
+button {
+  background: var(--violet);
+  color: var(--text);
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+}
+button:hover {
+  background: var(--green);
+}
+
+
 
 }
 @media(max-width:375px){
