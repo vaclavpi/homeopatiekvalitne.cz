@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Návštěvní kniha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .entry {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .entry:last-child {
+            border-bottom: none;
+        }
+        .date {
+            font-size: 12px;
+            color: gray;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #04AA6D;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #038c5a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Návštěvní kniha</h2>
+
+    <!-- Zde se zobrazí recenze -->
+    <div id="entries"></div>
+
+    <!-- Formulář pro novou recenzi -->
+    <div>
+        <h3>Přidejte svou recenzi</h3>
+        <div class="form-group">
+            <label for="name">Jméno:</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Vaše zkušenost:</label>
+            <textarea id="message" rows="3" required></textarea>
+        </div>
+        <button onclick="addEntry()">Odeslat</button>
+    </div>
+</div>
+
+<script>
+    // Načte existující recenze z localStorage
+    document.addEventListener("DOMContentLoaded", loadEntries);
+
+    function addEntry() {
+        let name = document.getElementById("name").value;
+        let message = document.getElementById("message").value;
+        let date = new Date().toLocaleString();
+
+        if (name.trim() === "" || message.trim() === "") {
+            alert("Vyplňte prosím jméno a zprávu.");
+            return;
+        }
+
+        let entry = { name, message, date };
+
+        let entries = JSON.parse(localStorage.getItem("guestbook")) || [];
+        entries.push(entry);
+        localStorage.setItem("guestbook", JSON.stringify(entries));
+
+        document.getElementById("name").value = "";
+        document.getElementById("message").value = "";
+
+        loadEntries(); // Aktualizace zobrazení
+    }
+
+    function loadEntries() {
+        let entries = JSON.parse(localStorage.getItem("guestbook")) || [];
+        let entriesDiv = document.getElementById("entries");
+        entriesDiv.innerHTML = "";
+
+        entries.forEach(entry => {
+            let div = document.createElement("div");
+            div.classList.add("entry");
+            div.innerHTML = `<strong>${entry.name}</strong> <span class="date">${entry.date}</span><br>${entry.message}`;
+            entriesDiv.prepend(div);
+        });
+    }
+</script>
+
+</body>
+</html>
