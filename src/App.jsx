@@ -1,10 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter  as Router, Routes, Route } from 'react-router-dom';
 import { MapPinIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import Navigation from './components/Navigation';
 import Redirect from './components/Redirect';
-import GuestBook from './components/GuestBook';
+import consultationImg from './images/cel.jpg';
+import familyImg from './images/family.jpg';
+import NapsaliONasPdf from './documents/casopis.pdf';
+
+
 
 const Home = () => (
   <div className="max-w-4xl mx-auto px-4 py-12 space-y-10 text-gray-800">
@@ -22,7 +26,9 @@ const Home = () => (
     </p>
   </div>
 
-  <div className="bg-gray-50 rounded-2xl p-6 shadow-sm">
+  <div className="bg-gray-50 rounded-2xl p-6 shadow-sm flex flex-col md:flex-row items-start gap-6">
+  {/* Textová část vlevo */}
+  <div className="md:w-2/3">
     <h2 className="text-2xl font-serif text-violet-900 mb-3">O mně</h2>
     <p>
       Odjakživa mě zajímalo zdraví a léčení. Dnes se věnuji zejména:
@@ -33,6 +39,15 @@ const Home = () => (
       <li>autopatii</li>
     </ul>
   </div>
+
+  {/* Obrázek napravo */}
+  <div className="md:w-1/3">
+    <img
+      src={familyImg}
+      className="rounded-xl w-full object-cover shadow"
+    />
+  </div>
+</div>
 
   <div className="bg-gray-50 rounded-2xl p-6 shadow-sm">
     <h2 className="text-2xl font-serif text-violet-900 mb-3">Moje cesta</h2>
@@ -219,7 +234,7 @@ const Consultation = () => (
     <section>
       <h2 className="text-2xl font-serif mb-4" style={{ color: '#7E7E1A' }}>Konzultační místnost v Čelákovicích</h2>
       <img
-        src="konzultacni-mistnost.jpg"
+        src={consultationImg}
         alt="Konzultační místnost v Čelákovicích"
         className="rounded-lg shadow-md w-full"
       />
@@ -395,33 +410,107 @@ const Pricing = () => (
 
 );
 
+
 const HomeopathyBox = () => (
-  <div className="max-w-4xl mx-auto px-4 py-12">
-    <h1 className="text-4xl font-serif text-violet-900 mb-8">Homeopatická lékárnička</h1>
-    <div className="space-y-8">
-      <section>
-        <h2 className="text-2xl font-serif text-violet-900 mb-4">Základní vybavení</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="bg-violet-50 p-4 rounded-lg">
-            <h3 className="font-serif text-violet-900 mb-2">Pro akutní stavy</h3>
-            <ul className="text-gray-700 space-y-1">
-              <li>• Arnica montana 30CH</li>
-              <li>• Belladonna 15CH</li>
-              <li>• Apis mellifica 15CH</li>
-            </ul>
+  <div className="max-w-5xl mx-auto px-4 py-12">
+    <h1 className="text-4xl font-serif text-violet-900 mb-8">Homeopatická první pomoc</h1>
+
+    <div className="space-y-6 text-gray-800">
+      <p>
+        V domácí lékárničce by Vám neměly chybět homeopatické léky pro první pomoc při běžných onemocněních nebo úrazech. Uvádím jen léky, které jsou běžně dostupné téměř v každé lékárně v ČR a SR.
+      </p>
+      <p>
+        Doporučuji použít ředění <strong>9CH</strong> nebo <strong>15CH</strong> (výjimkou je lék <strong>Silicea</strong> v ředění 30CH).
+      </p>
+      <p>
+        U takto vybavené lékárničky nemusíte hlídat expiraci – homeopatické léky ji nemají. Při správném skladování fungují i po letech.
+      </p>
+    </div>
+
+    <div className="mt-10 grid md:grid-cols-2 gap-6">
+      {/* Sloupec 1 */}
+      <div className="space-y-4">
+        {[
+          ['ACONITUM', 'šok, náhlá horečka, prochladnutí (nosím vždy s sebou)'],
+          ['ALLIUM CEPA', 'vodnatá/alergická rýma'],
+          ['APIS', 'bodnutí hmyzem/zvířetem (nosím vždy s sebou)'],
+          ['ARNICA', 'poranění, otřes, velká bolest (30CH)'],
+          ['ARSENICUM ALBUM', 'otrava jídlem, průjem, astma v noci'],
+          ['BELLADONA', 'horečka, úpal, přehřátí'],
+          ['CALENDULA', 'odřeniny, poranění oka, řezné rány'],
+          ['CANTHARIS', 'popáleniny, zánět močových cest, ucha'],
+          ['CAUSTICUM', 'opařený jazyk, ztráta hlasu'],
+          ['DROSERA', 'noční suchý kašel'],
+          ['DULCAMARA', 'onemocnění ze změny počasí'],
+          ['GELSEMIUM', 'viróza s vyčerpáním, tréma (nosím vždy s sebou)'],
+          ['HAMMAMELIS', 'popáleniny'],
+        ].map(([name, desc]) => (
+          <div key={name} className="bg-violet-50 p-4 rounded-lg shadow-sm">
+            <h3 className="font-semibold text-violet-900">{name}</h3>
+            <p className="text-sm text-gray-700">{desc}</p>
           </div>
-          <div className="bg-violet-50 p-4 rounded-lg">
-            <h3 className="font-serif text-violet-900 mb-2">Pro běžné obtíže</h3>
-            <ul className="text-gray-700 space-y-1">
-              <li>• Nux vomica 15CH</li>
-              <li>• Chamomilla 15CH</li>
-              <li>• Rhus toxicodendron 9CH</li>
-            </ul>
+        ))}
+      </div>
+
+      {/* Sloupec 2 */}
+      <div className="space-y-4">
+        {[
+          ['HYDRASTIS', 'vlhký žlutý kašel, homeopatické mukolytikum'],
+          ['HYPERICUM', 'bolestivé zhmoždění nervů (nosím vždy s sebou)'],
+          ['CHAMOMILLA', 'prořezávání zoubků u dětí'],
+          ['CHINA', 'průjem z vedra'],
+          ['LEDUM', 'kousnutí klíštětem, vpich jehly'],
+          ['MERCURIUS SOLUBIS', 'páchnoucí hnisání'],
+          ['NUX VOMICA', 'kocovina, nespavost, rýma'],
+          ['PHOSPHORUS', 'krvácení z nosu při kašli'],
+          ['PULSATILLA', 'omrzliny, dietní průjem (mukolytikum)'],
+          ['RUTA', 'vymknutí, únava očí, šlachy (nosím vždy s sebou)'],
+          ['RUMEX', 'suchý kašel z vdechu studeného vzduchu'],
+          ['SILICEA 30CH', 'třísky, rybí kost v krku, hnisání'],
+          ['SYMPHYTUM', 'zlomeniny, hojení kostí'],
+        ].map(([name, desc]) => (
+          <div key={name} className="bg-violet-50 p-4 rounded-lg shadow-sm">
+            <h3 className="font-semibold text-violet-900">{name}</h3>
+            <p className="text-sm text-gray-700">{desc}</p>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
     </div>
   </div>
+);
+
+const NapsaliONas = () => (
+  <div className="max-w-3xl mx-auto px-4 py-12">
+    <div className="bg-violet-50 rounded-lg shadow p-6 text-center">
+      <h2 className="text-2xl font-serif text-violet-900 mb-4">Napsali o nás</h2>
+      <p className="text-gray-700 mb-6">
+        Přečtěte si, co se o nás píše v médiích, článcích nebo zpravodajích.
+      </p>
+      <a
+        href={NapsaliONasPdf} // Cestu uprav dle umístění souboru
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block bg-violet-600 text-white font-semibold px-6 py-2 rounded hover:bg-violet-700 transition"
+      >
+        Otevřít PDF
+      </a>
+    </div>
+  </div>
+);
+
+
+
+
+
+const GuestBook = () => (
+  <iframe
+    src="https://ne-e.net/book/5780"
+    width="100%"
+    height="600"
+    frameBorder="0"
+    scrolling="auto"
+    title="Guestbook"
+  ></iframe>
 );
 
 
@@ -440,6 +529,7 @@ function App() {
           <Route path="/cenik" element={<Pricing />} />
           <Route path="/lekarnicka" element={<HomeopathyBox />} />
           <Route path="/o-nas" element={<Home />} />
+          <Route path="/napsali-o-nas" element={<NapsaliONas />} />
           <Route path="/kniha-navstev" element={<GuestBook />} />
           <Route path="/1" element={<Redirect to="https://www.zuzanaihnatkova.cz/" />} />
           <Route path="/2" element={<Redirect to="http://www.homeopatie.cz/" />} />

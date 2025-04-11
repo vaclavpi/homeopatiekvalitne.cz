@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import logo from '../images/logo.svg';
+
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,6 +20,7 @@ const Navigation = () => {
         { title: 'Homeopatická lékárnička', path: '/lekarnicka' },
       ],
     },
+    { title: 'Napsali o nás', path: '/napsali-o-nas' },
     { title: 'Kniha návštěv', path: '/kniha-navstev' },
     {
       title: 'Spřátelené odkazy',
@@ -37,7 +40,7 @@ const Navigation = () => {
         <div className="flex justify-between h-16">
           <div className="flex">
           <img
-          src="../src/images/logo.svg" 
+          src={logo}
           alt="Homeopatická poradna Emília"
           className="h-12 w-auto ml-1 mt-3"
         />
