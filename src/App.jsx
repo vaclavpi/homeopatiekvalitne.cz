@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { MapPinIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import Navigation from './components/Navigation';
+import Redirect from './components/Redirect';
+import GuestBook from './components/GuestBook';
 
 const Home = () => (
   <div className="max-w-4xl mx-auto px-4 py-12 space-y-10 text-gray-800">
@@ -424,196 +426,6 @@ const HomeopathyBox = () => (
 
 
 
-const AboutUs = () => (
-  <div className="max-w-4xl mx-auto px-4 py-12 space-y-10 text-gray-800">
-  <h1 className="text-4xl font-serif text-violet-900 mb-6">Homeopatie – cesta k uzdravení</h1>
-
-  <div className="bg-gray-50 rounded-2xl p-6 shadow-sm">
-    <p>
-      Homeopatickou poradnu jsem založila v roce 2012 na základě poptávky mých prvních spokojených klientů.
-      Jejich důvěra mě inspirovala pokračovat v cestě léčby a porozumění.
-    </p>
-    <p className="mt-4">
-      V dětství jsem snila o tom, že budu zdravotní sestrou. Zdravotní komplikace mi ale změnily plány,
-      a tak jsem vystudovala klasickou filologii. Až po narození druhé dcery jsem objevila
-      <span className="text-[#7E7E1A] font-semibold"> sílu přírodní léčby</span> – a našla své místo v homeopatii.
-    </p>
-  </div>
-
-  <div className="bg-gray-50 rounded-2xl p-6 shadow-sm">
-    <h2 className="text-2xl font-serif text-violet-900 mb-3">O mně</h2>
-    <p>
-      Odjakživa mě zajímalo zdraví a léčení. Dnes se věnuji zejména:
-    </p>
-    <ul className="mt-3 list-disc list-inside space-y-1 text-[#7E7E1A] font-medium">
-      <li>konstituční homeopatii</li>
-      <li>fytoterapii</li>
-      <li>autopatii</li>
-    </ul>
-  </div>
-
-  <div className="bg-gray-50 rounded-2xl p-6 shadow-sm">
-    <h2 className="text-2xl font-serif text-violet-900 mb-3">Moje cesta</h2>
-    <div className="space-y-4">
-      <div className="flex items-start">
-        <i className="fa-solid fa-heart-circle-plus text-[#7E7E1A] mt-1 mr-3"></i>
-        <p><strong>Založení poradny:</strong> V roce 2012 jsem začala pomáhat lidem jako homeopatka.</p>
-      </div>
-      <div className="flex items-start">
-        <i className="fa-solid fa-user-graduate text-[#7E7E1A] mt-1 mr-3"></i>
-        <p><strong>Studium klasické filologie:</strong> I když jsem se nevydala zdravotní cestou, pomáhání mi zůstalo blízké.</p>
-      </div>
-      <div className="flex items-start">
-        <i className="fa-solid fa-leaf text-[#7E7E1A] mt-1 mr-3"></i>
-        <p><strong>Objev homeopatie:</strong> Přirozený způsob léčby mi otevřel nové obzory.</p>
-      </div>
-    </div>
-  </div>
-
-  <div className="bg-gray-50 rounded-2xl p-6 shadow-sm">
-    <h2 className="text-2xl font-serif text-violet-900 mb-3">Léčebná výživa & celiakie</h2>
-    <p>
-      Zjištění, že mám <span className="text-[#7E7E1A] font-semibold">celiakii</span>, mi změnilo život.
-      Dnes pomáhám druhým najít cestu, jak zvládnout bezlepkovou stravu – nejen technicky, ale i lidsky.
-    </p>
-
-    <div className="grid md:grid-cols-2 gap-4 mt-6">
-      <div className="bg-white rounded-xl p-4 border border-gray-200">
-        <div className="flex items-center mb-2">
-          <i className="fa-solid fa-seedling text-[#7E7E1A] mr-2"></i>
-          <span className="font-semibold text-[#7E7E1A]">Diagnóza jako nový začátek</span>
-        </div>
-        <p>Zjištění celiakie přináší výzvy, ale i nové možnosti. Pomohu vám najít cestu ke zdraví.</p>
-      </div>
-
-      <div className="bg-white rounded-xl p-4 border border-gray-200">
-        <div className="flex items-center mb-2">
-          <i className="fa-solid fa-bread-slice text-[#7E7E1A] mr-2"></i>
-          <span className="font-semibold text-[#7E7E1A]">Bezlepková strava bez stresu</span>
-        </div>
-        <p>Pomohu vám s výběrem potravin i s tím, jak zvládnout nový životní styl.</p>
-      </div>
-
-      <div className="bg-white rounded-xl p-4 border border-gray-200">
-        <div className="flex items-center mb-2">
-          <i className="fa-solid fa-apple-whole text-[#7E7E1A] mr-2"></i>
-          <span className="font-semibold text-[#7E7E1A]">Výživa jako klíč ke zdraví</span>
-        </div>
-        <p>Co jíme, ovlivňuje jak se cítíme. Společně najdeme rovnováhu pro vaše tělo i duši.</p>
-      </div>
-
-      <div className="bg-white rounded-xl p-4 border border-gray-200">
-        <div className="flex items-center mb-2">
-          <i className="fa-solid fa-hand-holding-heart text-[#7E7E1A] mr-2"></i>
-          <span className="font-semibold text-[#7E7E1A]">Praktické rady a podpora</span>
-        </div>
-        <p>Ráda se s vámi podělím o osobní zkušenosti a tipy, které pomáhají každý den.</p>
-      </div>
-    </div>
-  </div>
-</div>
-);
-
-const GuestBook = () => (
-  <div className="max-w-4xl mx-auto px-4 py-12">
-    <h1 className="text-4xl font-serif text-violet-900 mb-8">Kniha návštěv</h1>
-    <div className="space-y-8">
-      <div className="bg-violet-50 p-6 rounded-lg">
-        <h2 className="text-2xl font-serif text-violet-900 mb-4">Napište nám svůj názor</h2>
-        <form className="space-y-4">
-          <div>
-            <label className="block text-gray-700 mb-2" htmlFor="name">Jméno</label>
-            <input
-              type="text"
-              id="name"
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500"
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700 mb-2" htmlFor="message">Zpráva</label>
-            <textarea
-              id="message"
-              rows="4"
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-violet-500"
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            className="bg-violet-600 text-white px-6 py-2 rounded-lg hover:bg-violet-700 transition-colors"
-          >
-            Odeslat
-          </button>
-        </form>
-      </div>
-      
-      <div className="space-y-6">
-        <h2 className="text-2xl font-serif text-violet-900 mb-4">Reference našich klientů</h2>
-        <div className="bg-white shadow-lg rounded-lg p-6">
-          <p className="text-gray-700 mb-4">
-            "Homeopatie mi pomohla s chronickými migrénami. Po třech měsících léčby jsem zaznamenala výrazné zlepšení."
-          </p>
-          <p className="text-violet-600 font-medium">- Marie K.</p>
-        </div>
-        <div className="bg-white shadow-lg rounded-lg p-6">
-          <p className="text-gray-700 mb-4">
-            "Oceňuji profesionální a současně lidský přístup. Díky homeopatické léčbě se můj syn zbavil častých angín."
-          </p>
-          <p className="text-violet-600 font-medium">- Jan P.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const Partners = () => (
-  <div className="max-w-4xl mx-auto px-4 py-12">
-    <h1 className="text-4xl font-serif text-violet-900 mb-8">Partnerské společnosti</h1>
-    <div className="grid md:grid-cols-2 gap-8">
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-serif text-violet-900 mb-4">Homeopatická akademie</h2>
-        <p className="text-gray-700 mb-4">
-          Vzdělávací instituce zaměřená na výuku klasické homeopatie.
-        </p>
-        <a href="#" className="text-violet-600 hover:text-violet-800">Více informací →</a>
-      </div>
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-serif text-violet-900 mb-4">Homeopatická lékárna</h2>
-        <p className="text-gray-700 mb-4">
-          Specializovaná lékárna s širokým sortimentem homeopatických přípravků.
-        </p>
-        <a href="#" className="text-violet-600 hover:text-violet-800">Více informací →</a>
-      </div>
-    </div>
-  </div>
-);
-
-const Links = () => (
-  <div className="max-w-4xl mx-auto px-4 py-12">
-    <h1 className="text-4xl font-serif text-violet-900 mb-8">Užitečné odkazy</h1>
-    <div className="space-y-8">
-      <section>
-        <h2 className="text-2xl font-serif text-violet-900 mb-4">Odborné organizace</h2>
-        <div className="space-y-4">
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="text-xl font-serif text-violet-900 mb-2">Česká komora homeopatů</h3>
-            <p className="text-gray-700 mb-4">
-              Profesní organizace sdružující kvalifikované homeopaty v ČR.
-            </p>
-            <a href="#" className="text-violet-600 hover:text-violet-800">Navštívit stránky →</a>
-          </div>
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="text-xl font-serif text-violet-900 mb-2">Světová homeopatická organizace</h3>
-            <p className="text-gray-700 mb-4">
-              Mezinárodní organizace pro rozvoj a výzkum v homeopatii.
-            </p>
-            <a href="#" className="text-violet-600 hover:text-violet-800">Navštívit stránky →</a>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
-);
-
 function App() {
   return (
     <Router>
@@ -627,11 +439,13 @@ function App() {
           <Route path="/antidota" element={<Antidotas />} />
           <Route path="/cenik" element={<Pricing />} />
           <Route path="/lekarnicka" element={<HomeopathyBox />} />
-          <Route path="/kontakt" element={<Contact />} />
-          <Route path="/o-nas" element={<AboutUs />} />
+          <Route path="/o-nas" element={<Home />} />
           <Route path="/kniha-navstev" element={<GuestBook />} />
-          <Route path="/partneri" element={<Partners />} />
-          <Route path="/odkazy" element={<Links />} />
+          <Route path="/1" element={<Redirect to="https://www.zuzanaihnatkova.cz/" />} />
+          <Route path="/2" element={<Redirect to="http://www.homeopatie.cz/" />} />
+          <Route path="/3" element={<Redirect to="http://www.pilates-kurzy.cz/" />} />
+          <Route path="/4" element={<Redirect to="http://www.autopatie.cz/" />} />
+          <Route path="/5" element={<Redirect to="http://www.123homeopatie.com/" />} />
         </Routes>
 
         <footer className="bg-white py-12 px-4 sm:px-6 lg:px-8 border-t">
@@ -646,41 +460,26 @@ function App() {
                 <div className="space-y-4 text-gray-600">
                   <p className="flex items-center hover:text-violet-600 transition-colors">
                     <MapPinIcon className="h-5 w-5 mr-3" />
-                    Květinová 123, Praha 5
+                    Třebízského 1245, 250 88 Čelákovice
                   </p>
-                  <p className="flex items-center hover:text-violet-600 transition-colors">
+                  <a href="tel:+420776297250"><p className="flex items-center hover:text-violet-600 transition-colors">
                     <PhoneIcon className="h-5 w-5 mr-3" />
-                    +420 777 888 999
-                  </p>
-                  <p className="flex items-center hover:text-violet-600 transition-colors">
+                    +420 776 297 250
+                  </p></a>
+                  <a href='mailto:mailto:slavomira.ochotnicka@seznam.cz'><p className="flex items-center hover:text-violet-600 transition-colors">
                     <EnvelopeIcon className="h-5 w-5 mr-3" />
-                    info@homeopatie-praha.cz
-                  </p>
+                    slavomira.ochotnicka@seznam.cz
+                  </p></a>
                 </div>
               </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-serif text-violet-900 mb-6">Důležité odkazy</h3>
-                <div className="space-y-4">
-                  <p>
-                    <a href="#" className="text-violet-600 hover:text-violet-800 transition-colors">
-                      Zásady ochrany osobních údajů
-                    </a>
-                  </p>
-                  <p>
-                    <a href="#" className="text-violet-600 hover:text-violet-800 transition-colors">
-                      Obchodní podmínky
-                    </a>
-                  </p>
-                </div>
-              </motion.div>
+              
             </div>
             <div className="mt-12 text-center text-gray-500 text-sm">
-              © 2024 Homeopatické Poradenství. Všechna práva vyhrazena.
+              © 2025 Homeopatická poradna Emília. Všechna práva vyhrazena.
             </div>
+            <a href='https://vaclavpi.github.io/' target='_blank'><div className="mt-9 text-center text-gray-500 text-sm">
+              Vytvořil Václav Pisinger.
+            </div></a>
           </div>
         </footer>
       </div>

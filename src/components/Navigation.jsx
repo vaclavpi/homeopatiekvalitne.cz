@@ -7,7 +7,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const menuItems = [
-    { title: 'O nás', path: '/o-nas' },
+    { title: 'O nás', path: '/' },
     {
       title: 'O Homeopatii',
       submenu: [
@@ -20,10 +20,13 @@ const Navigation = () => {
     },
     { title: 'Kniha návštěv', path: '/kniha-navstev' },
     {
-      title: 'Další',
+      title: 'Spřátelené odkazy',
       submenu: [
-        { title: 'Partnerské společnosti', path: '/partneri' },
-        { title: 'Užitečné odkazy', path: '/odkazy' },
+        { title: 'Zuzana Ihnátková - terapeut metodou JIH', path: '/1' },
+        { title: 'Homeopatie', path: '/2' },
+        { title: 'Pilates kurzy', path: '/3' },
+        { title: 'Autopatie', path: '/4' },
+        { title: '123 homeopatie', path: '/5' },
       ],
     },
   ];
@@ -34,9 +37,9 @@ const Navigation = () => {
         <div className="flex justify-between h-16">
           <div className="flex">
           <img
-          src="https://homeopatiekvalitne.cz/obrazky/logo.jpg" 
+          src="../src/images/logo.svg" 
           alt="Homeopatická poradna Emília"
-          className="h-10 w-auto"
+          className="h-12 w-auto ml-1 mt-3"
         />
           </div>
 
